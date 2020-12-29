@@ -8,11 +8,11 @@ def provider():
 
 
 p = provider()
-# print(p)
-for i in p:
-    print(i)
-# print(next(p))
-# print(next(p))
-# print(next(p))
-# print(next(p))
-# print(next(p))
+print(p)
+# for i in p:
+#     print(i)
+print(next(p))
+print(next(p))
+print(next(p))
+print(next(p))
+print(next(p))
