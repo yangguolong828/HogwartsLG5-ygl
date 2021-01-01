@@ -1,6 +1,11 @@
 import pytest
 
-
+#使用conftest中的数据
+# @pytest.fixture(scope="module")
+# def connectDB():
+#     print("连接数据库操作")
+#     yield
+#     print("断开数据库连接")
 
 class TestDemo:
 

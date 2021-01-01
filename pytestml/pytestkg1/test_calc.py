@@ -1,10 +1,13 @@
+import os
+
 import pytest
 import yaml
 
 from pytestml.pythoncode.calculator import Calculator
+yaml_file_path = os.path.dirname(__file__) + "/data.yml"
 
 def get_datas():
-    with open('data.yml') as f:
+    with open(yaml_file_path) as f:
         datas = yaml.safe_load(f)
         add_datas = datas["datas"]
         add_ids = datas["ids"]
