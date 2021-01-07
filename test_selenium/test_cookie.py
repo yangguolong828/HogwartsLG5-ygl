@@ -1,15 +1,22 @@
+import json
+
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 
-class TestWorlWechart():
+class Testcookies():
+
     def setup(self):
-        self.driver = webdriver.Chrome()
-        self.driver.implicitly_wait(5)
+        chrome_args = webdriver.ChromeOptions()
+        chrome_args.debugger_address = "localhost:9222"
+        self.driver = webdriver.Chrome(options=chrome_args)
 
     def teardown(self):
         self.driver.quit()
 
-    def test_workwechart(self):
-        self.driver.get("https://work.weixin.qq.com/")
-        self.driver.find_element(By.XPATH, "//*[@class='index_top_operation_loginBtn']").click()
+    def test_cookie(self):
+        #获取cookie
+        cookies = self.driver.get_cookies()
+        # 以文件流的形式打开文件
+        with open("cookie.json", "w") as f:
+            # 存储cookie到文件中
+            json.dump(cookies,f)
