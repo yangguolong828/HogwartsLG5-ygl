@@ -14,7 +14,6 @@ def connectDB():
 
 with open(yaml_file_path) as f:
     datas = yaml.safe_load(f)
-    print(datas)
     #获取文件中key为add_datas的数据
     add_datas = datas["addition_datas"]
     # 获取文件中key为add_ids的数据
