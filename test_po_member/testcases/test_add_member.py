@@ -1,5 +1,5 @@
-from test_po.page.base_page import BasePage
-from test_po.page.main_page import MainPage
+from test_po_member.page.base_page import BasePage
+from test_po_member.page.main_page import MainPage
 
 
 class TestAddMember(BasePage):

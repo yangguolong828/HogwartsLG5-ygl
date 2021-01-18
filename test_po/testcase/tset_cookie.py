@@ -1,5 +1,4 @@
 import json
-
 from selenium import webdriver
 
 
@@ -7,8 +6,8 @@ class Testcookies():
 
     def setup(self):
         chrome_args = webdriver.ChromeOptions()
-        chrome_args.debugger_address = "localhost:9220"
-        self.driver = webdriver.Chrome(options=chrome_args)
+        chrome_args.debugger_address = "localhost:9222"
+        self.driver = webdriver.Chrome(r'D:\Python Driver\ChromeDriver\chromedriver.exe',options=chrome_args)
 
     def teardown(self):
         self.driver.quit()
