@@ -7,25 +7,27 @@ from test_appium.test_appium_po.page.main_page import MainPage
 class App(BasePage):
 
     def start(self):
-
-        caps = {}
-        caps["platformName"] = "android"
-        caps["deviceName"] = "127.0.0.1:7555"
-        caps["appPackage"] = "com.tencent.wework"
-        caps["appActivity"] = ".launch.LaunchSplashActivity"
-        # 不清空本地缓存，启动app
-        caps["noReset"] = "true"
-        caps["ensureWebviewsHavePages"] = True
-        # 设置页面等待空闲时间为0秒
-        caps['settings[waitForIdleTimeout]'] = 0
-        self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
-        self.driver.implicitly_wait(10)
-
+        if self.driver == None:
+            caps = {}
+            caps["platformName"] = "android"
+            caps["deviceName"] = "127.0.0.1:7555"
+            caps["appPackage"] = "com.tencent.wework"
+            caps["appActivity"] = ".launch.LaunchSplashActivity"
+            # 不清空本地缓存，启动app
+            caps["noReset"] = "true"
+            caps["ensureWebviewsHavePages"] = True
+            # 设置页面等待空闲时间为0秒
+            caps['settings[waitForIdleTimeout]'] = 0
+            self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
+            self.driver.implicitly_wait(10)
+        else:
+            self.driver.launch_app()
         return self
 
 
     def restart(self):
-
+        self.driver.quit()
+        self.driver.launch_app()
         return self
 
     def stop(self):

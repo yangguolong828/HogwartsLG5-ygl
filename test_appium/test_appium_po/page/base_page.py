@@ -5,8 +5,6 @@ class BasePage:
 
 
 
-
-
     def find(self, by, value):
         return self.driver.find_element(by=by, value=value)
 
