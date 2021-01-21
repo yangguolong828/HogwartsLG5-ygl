@@ -8,5 +8,5 @@ from test_appium.test_appium_po.page.contact_page import ContactPage
 class MainPage(BasePage):
 
     def goto_contact(self):
-        self.find(MobileBy.XPATH, '//*[@text="通讯录"]').click()
+        self.find_and_click(MobileBy.XPATH, '//*[@text="通讯录"]')
         return ContactPage(self.driver)

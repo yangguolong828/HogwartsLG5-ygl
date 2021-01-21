@@ -18,14 +18,14 @@ class AddMemberPage(BasePage):
         ele.click()
         # self.find(MobileBy.XPATH, '//*[@text="男"]').click()
         if gender == '女':
-            self.find(MobileBy.XPATH, '//*[@text="女"]').click()
+            self.find_and_click(MobileBy.XPATH, '//*[@text="女"]')
         else:
-            self.find(MobileBy.XPATH, '//*[@resource-id="com.tencent.wework:id/boh"]//*[@text="男"]').click()
+            self.find_and_click(MobileBy.XPATH, '//*[@resource-id="com.tencent.wework:id/boh"]//*[@text="男"]')
         return self
     def edit_phonenum(self, phonenum):
         self.find(MobileBy.ID, "com.tencent.wework:id/fuy").send_keys(phonenum)
         return self
     def click_save(self):
         from test_appium.test_appium_po.page.memberInvite_page import MemberInvitePage
-        self.find(MobileBy.ID, "com.tencent.wework:id/ie7").click()
+        self.find_and_click(MobileBy.ID, "com.tencent.wework:id/ie7")
         return MemberInvitePage(self.driver)
