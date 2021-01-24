@@ -1,4 +1,5 @@
 from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 
 
@@ -12,10 +13,25 @@ class BasePage:
         return self.driver.find_element(by=by,value=value)
 
     def find(self, locator):
-        return self.driver.find_element(*locator)
+        black_list = (By.XPATH, '//*[@id="com.xueqiu.android:id/iv_close"]')
+        try:
+            result = self.driver.find_element(*locator)
+            return result
+        except Exception as e:
+            for black in black_list:
+                eles = self.driver.find_element(*black)
+                if len(eles)>0:
+                    eles[0].click()
+
+                    return self.find(locator)
+            raise e
+
 
     def find_and_click(self, locator):
         self.find(locator).click()
+
+    def find_and_send(self, locator):
+        self.find(locator).send_keys()
 
     def scroll_find_click(self, text):
         ele = (MobileBy.ANDROID_UIAUTOMATOR,
