@@ -7,11 +7,11 @@ class Counter:
 
     def request(self, flow: http.HTTPFlow) -> None:
 
-        if f"qv5/stock/batch/quote.json" in flow.request.pretty_url:
-            with open(r"json文件路径", "r", encoding="utf-8")as f:
+        if f"quote.json" in flow.request.pretty_url and "x=" in flow.request.pretty_url:
+            with open(r"C:\Users\29825\Desktop\quote.json", "r", encoding="utf-8")as f:
                 flow.response = http.HTTPResponse.make(
                     200,  # (optional) status code
-                    b"Hello World",  # (optional) content
+                    f.read(),  # (optional) content
                     {"Content-Type": "application/json"}  # (optional) headers
                 )
 

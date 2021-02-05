@@ -1,2 +1,12 @@
+allure-pytest==2.8.32
+allure-python-commons==2.8.32
+Appium-Python-Client==1.0.2
+Brotli==1.0.9
+iniconfig==1.1.1
+mitmproxy==6.0.2
+msgpack==1.0.2
+packaging==20.8
 pytest==6.2.1
 PyYAML==5.3.1
+requests==2.25.1
+selenium==3.141.0
