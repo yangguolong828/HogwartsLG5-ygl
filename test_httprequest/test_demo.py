@@ -1,4 +1,6 @@
 import requests
+from jsonpath import jsonpath
+
 
 class TestDemo:
     def test_get(self):
@@ -44,3 +46,10 @@ class TestDemo:
         assert r.status_code == 200
         assert r.json()['json']['level'] == 1
 
+    def test_hogwarts_json(self):
+        r = requests.get('https://ceshiren.com/categories.json')
+        print(r.text)
+        assert r.status_code == 200
+        assert r.json()['category_list']['categories'][0]['name'] == '开源项目'
+        print(jsonpath(r.json(), '$..name'))
+        assert jsonpath(r.json(), '$..name')[0] == '开源项目'
