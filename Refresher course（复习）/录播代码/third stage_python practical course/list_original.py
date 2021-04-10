@@ -1,0 +1,13 @@
+list_ygl=[1,2,3]
+list_ygl.append(0)
+print(list_ygl)
+list_ygl.insert(1,9)
+print(list_ygl)
+list_ygl.remove(9)
+print(list_ygl)
+list_ygl.pop(2)
+print(list_ygl)
+list_ygl.sort(reverse=True)
+print(list_ygl)
+list_ygl.reverse()
+print(list_ygl)
