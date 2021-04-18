@@ -7,7 +7,7 @@ class Testcookies():
 
     def setup(self):
         chrome_args = webdriver.ChromeOptions()
-        chrome_args.debugger_address = "localhost:9220"
+        chrome_args.debugger_address = "127.0.0.1:9220"
         self.driver = webdriver.Chrome(options=chrome_args)
 
     def teardown(self):
